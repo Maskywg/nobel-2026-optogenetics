@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>牠只是想找到光——2026諾貝爾生理學或醫學獎深讀</title>
+<meta name="description" content="2026年諾貝爾生理學或醫學獎,頒給Karl Deisseroth、Peter Hegemann、Georg Nagel,表彰光閘離子通道與光遺傳學的發現。一株向光游動的藻類,如何變成開啟大腦的鑰匙。">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="牠只是想找到光——2026諾貝爾生理學或醫學獎深讀">
+<meta property="og:description" content="一株向光游動的藻,一道藍光,一把打開大腦的鑰匙。2026諾貝爾生理學或醫學獎,光遺傳學的故事。">
+<meta property="og:image" content="https://maskywg.github.io/nobel-2026-optogenetics/assets/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://maskywg.github.io/nobel-2026-optogenetics/">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="牠只是想找到光——2026諾貝爾生理學或醫學獎深讀">
+<meta name="twitter:description" content="一株向光游動的藻,一道藍光,一把打開大腦的鑰匙。2026諾貝爾生理學或醫學獎,光遺傳學的故事。">
+<meta name="twitter:image" content="https://maskywg.github.io/nobel-2026-optogenetics/assets/og-card.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg: #faf5ea;
+    --bg-panel: #fffdf7;
+    --ink: #2c2318;
+    --ink-soft: #5a4d3c;
+    --burgundy: #6e1f22;
+    --burgundy-deep: #4c1517;
+    --gold: #b8863a;
+    --gold-soft: #e4c98a;
+    --line: #e3d7bd;
+    --blue: #2b5478;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Noto Sans TC', sans-serif;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Noto Serif TC', serif;
+    font-weight:700;
+    color:var(--ink);
+    letter-spacing:.02em;
+  }
+  .wrap{max-width:860px; margin:0 auto; padding:0 24px;}
+  a{color:var(--burgundy);}
+
+  /* HERO */
+  .hero{
+    position:relative;
+    padding:88px 0 64px;
+    background:
+      radial-gradient(ellipse at top, #fffaf0 0%, var(--bg) 70%);
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+  }
+  .eyebrow{
+    display:inline-block;
+    font-size:.82rem;
+    letter-spacing:.18em;
+    color:var(--burgundy);
+    font-weight:700;
+    border:1px solid var(--burgundy);
+    border-radius:999px;
+    padding:6px 16px;
+    margin-bottom:28px;
+  }
+  .hero h1{
+    font-size:clamp(2rem, 5vw, 3.1rem);
+    line-height:1.4;
+    margin:0 0 22px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--burgundy);
+  }
+  .hero-sub{
+    font-size:1.08rem;
+    color:var(--ink-soft);
+    max-width:620px;
+    margin:0 0 36px;
+  }
+  .laureate-figure{
+    margin:40px 0 8px;
+    border-radius:4px;
+    overflow:hidden;
+    box-shadow:0 18px 40px -20px rgba(76,21,23,.35);
+  }
+  .laureate-figure img{width:100%; display:block;}
+  .figcap{
+    font-size:.82rem;
+    color:var(--ink-soft);
+    margin-top:10px;
+    text-align:right;
+  }
+
+  /* SECTION GENERIC */
+  section{padding:64px 0;}
+  section.alt{background:var(--bg-panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .kicker{
+    font-size:.78rem;
+    letter-spacing:.2em;
+    color:var(--gold);
+    font-weight:700;
+    text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  h2{font-size:clamp(1.5rem, 3vw, 1.9rem); margin:0 0 28px;}
+  p{margin:0 0 20px; color:var(--ink);}
+  p.lead{font-size:1.08rem; color:var(--ink-soft);}
+
+  /* TLDR BOX */
+  .tldr{
+    background:var(--burgundy);
+    color:#fbeedd;
+    border-radius:10px;
+    padding:30px 34px;
+    margin:0 0 8px;
+  }
+  .tldr .kicker{color:var(--gold-soft);}
+  .tldr p{color:#fbeedd; margin:0; font-size:1.05rem;}
+  .tldr strong{color:#fff;}
+
+  /* DIAGRAM */
+  .diagram-box{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:30px 20px 10px;
+    margin:36px 0;
+  }
+  .diagram-box svg{width:100%; height:auto; display:block;}
+  .diagram-cap{
+    text-align:center;
+    font-size:.86rem;
+    color:var(--ink-soft);
+    padding:14px 10px 20px;
+  }
+
+  /* TIMELINE */
+  .timeline{position:relative; margin:30px 0 0; padding-left:28px; border-left:2px solid var(--gold-soft);}
+  .tl-item{position:relative; padding-bottom:34px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:'';
+    position:absolute;
+    left:-34px; top:4px;
+    width:12px; height:12px;
+    border-radius:50%;
+    background:var(--gold);
+    border:3px solid var(--bg-panel);
+  }
+  .tl-year{font-family:'Noto Serif TC',serif; font-weight:700; color:var(--burgundy); font-size:1.05rem;}
+  .tl-body{color:var(--ink-soft); margin-top:4px;}
+
+  /* LAUREATE CARDS */
+  .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:28px;}
+  @media (max-width:720px){.cards{grid-template-columns:1fr;}}
+  .card{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:24px 20px;
+  }
+  .card h3{font-size:1.1rem; margin:0 0 6px; color:var(--burgundy);}
+  .card .role{font-size:.84rem; color:var(--gold); font-weight:700; margin-bottom:12px;}
+  .card p{font-size:.92rem; color:var(--ink-soft); margin:0;}
+
+  /* APPLICATION GRID */
+  .app-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:28px;}
+  @media (max-width:640px){.app-grid{grid-template-columns:1fr;}}
+  .app-item{
+    border-left:3px solid var(--blue);
+    padding:4px 0 4px 18px;
+  }
+  .app-item h3{font-size:1rem; font-family:'Noto Sans TC',sans-serif; font-weight:700; margin:0 0 6px; color:var(--ink);}
+  .app-item p{font-size:.92rem; color:var(--ink-soft); margin:0;}
+
+  /* QUOTE */
+  .pull-quote{
+    font-family:'Noto Serif TC', serif;
+    font-size:clamp(1.3rem,2.6vw,1.7rem);
+    line-height:1.8;
+    color:var(--ink);
+    text-align:center;
+    max-width:680px;
+    margin:0 auto;
+    padding:10px 0;
+  }
+  .pull-quote::before{content:'“'; color:var(--gold); font-size:2.2rem; display:block; margin-bottom:4px;}
+  .pull-attr{text-align:center; color:var(--ink-soft); font-size:.9rem; margin-top:18px;}
+
+  footer{
+    padding:48px 0 70px;
+    text-align:center;
+    color:var(--ink-soft);
+    font-size:.84rem;
+  }
+  footer a{color:var(--ink-soft); text-decoration:underline;}
+  footer .credit{margin-top:18px; font-size:.78rem; opacity:.75;}
+
+  .note-box{
+    background:#f5efe0;
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:16px 20px;
+    font-size:.88rem;
+    color:var(--ink-soft);
+    margin-top:30px;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">2026 諾貝爾生理學或醫學獎</span>
+    <h1>牠只是想找到光,<br>卻替我們打開了<em>大腦</em>的門。</h1>
+    <p class="hero-sub">瑞典卡羅林斯卡學院諾貝爾大會宣布,將2026年諾貝爾生理學或醫學獎,共同頒給 Karl Deisseroth、Peter Hegemann 與 Georg Nagel,表彰他們「關於光閘離子通道與光遺傳學的發現」。故事的起點,是一株只想游向光源的單細胞藻類。</p>
+    <div class="laureate-figure">
+      <img src="assets/laureates.jpg" alt="2026年諾貝爾生理學或醫學獎得主:Karl Deisseroth、Peter Hegemann、Georg Nagel 肖像插畫">
+    </div>
+    <p class="figcap">插畫:Niklas Elmehed © Nobel Prize Outreach</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="tldr">
+      <div class="kicker">30秒看懂</div>
+      <p>一種藻類細胞表面有個對藍光反應極快的蛋白質,光一照,通道就打開,離子湧入,電訊號隨之產生。<strong>Hegemann 與 Nagel</strong> 找到了這個蛋白質「光閘離子通道蛋白」(channelrhodopsin);<strong>Deisseroth</strong> 把它的基因植入神經細胞,做出一支只聽光指揮的開關——這就是「光遺傳學」(optogenetics)。從此,科學家第一次能精準打開或關掉大腦裡<strong>特定一種</strong>神經細胞,看它究竟掌管了哪一段記憶、哪一種情緒、哪一個動作。</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="kicker">故事的起點</div>
+    <h2>一株藻類,為什麼要游向光?</h2>
+    <p class="lead">1990年代初,德國科學家 Peter Hegemann 盯著培養皿裡的綠藻 <em>Chlamydomonas</em> 發呆——每次從一側打光,原本均勻懸浮的藻液,幾分鐘內就整片往光源湧去。牠們靠著細胞表面一個橘紅色的小「眼點」感光,但真正讓 Hegemann 著迷的,是反應的速度。</p>
+    <p>他用微電極量測眼點受光後產生的電訊號,發現光線照到眼點後,不到<strong>半毫秒</strong>電流就已經出現。相比之下,光線進入人類眼睛,要經過一連串化學連鎖反應才能轉成電訊號,整個過程至少需要10毫秒——藻類的反應快了二十幾倍。Hegemann 大膽猜測:在藻類身上,「感光」與「放行離子」這兩件事,可能是同一個蛋白質同時完成的。當時沒有人相信這種蛋白質存在。</p>
+
+    <div class="diagram-box">
+      <svg viewBox="0 0 760 260" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="lightGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#bcd9f2" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#bcd9f2" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <!-- cell membrane -->
+        <rect x="40" y="90" width="680" height="80" rx="40" fill="#fdf7e8" stroke="#d8c492" stroke-width="2"/>
+        <text x="60" y="76" font-family="Noto Sans TC, sans-serif" font-size="14" fill="#5a4d3c">細胞膜</text>
+
+        <!-- closed channel (left) -->
+        <circle cx="200" cy="130" r="46" fill="url(#lightGlow)" opacity="0"/>
+        <rect x="178" y="92" width="44" height="76" rx="14" fill="#8a6a3a"/>
+        <rect x="192" y="118" width="16" height="24" rx="4" fill="#fdf7e8"/>
+        <text x="200" y="202" text-anchor="middle" font-family="Noto Sans TC, sans-serif" font-size="13" fill="#5a4d3c">① 無光:通道關閉</text>
+
+        <!-- light arrow -->
+        <line x1="420" y1="30" x2="420" y2="88" stroke="#2b5478" stroke-width="4"/>
+        <polygon points="420,92 412,76 428,76" fill="#2b5478"/>
+        <text x="420" y="22" text-anchor="middle" font-family="Noto Sans TC, sans-serif" font-size="13" fill="#2b5478" font-weight="700">藍光</text>
+
+        <!-- open channel (right) -->
+        <rect x="398" y="92" width="44" height="76" rx="14" fill="#6e1f22"/>
+        <rect x="408" y="108" width="24" height="52" rx="6" fill="#fdf7e8"/>
+        <circle cx="420" cy="122" r="5" fill="#b8863a"/>
+        <circle cx="420" cy="138" r="5" fill="#b8863a"/>
+        <circle cx="420" cy="154" r="5" fill="#b8863a"/>
+        <circle cx="420" cy="60" r="5" fill="#b8863a"/>
+        <text x="420" y="202" text-anchor="middle" font-family="Noto Sans TC, sans-serif" font-size="13" fill="#5a4d3c">② 照光後:通道打開,離子湧入</text>
+
+        <!-- signal pulse -->
+        <path d="M 540 130 L 570 130 L 580 95 L 595 160 L 610 115 L 625 130 L 660 130" fill="none" stroke="#6e1f22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="600" y="202" text-anchor="middle" font-family="Noto Sans TC, sans-serif" font-size="13" fill="#5a4d3c">③ 產生電訊號</text>
+      </svg>
+      <div class="diagram-cap">光閘離子通道蛋白(channelrhodopsin)的基本原理:藍光照射後,蛋白質本身打開一條通道,帶電離子流入細胞,瞬間產生電訊號——感光與通電,由同一個蛋白質完成。</div>
+    </div>
+
+    <p>要證實這個猜想並不容易——這種蛋白質一旦離開藻類細胞的天然環境就極不穩定,屢屢分解。直到2000年前後,日本團隊公開了<em>Chlamydomonas</em>的基因圖譜,Hegemann的團隊才在裡頭找到兩段與已知感光蛋白相似的基因。他聯繫了法蘭克福的 Georg Nagel——一位擅長用青蛙卵細胞研究蛋白質功能的科學家,請他幫忙驗證。</p>
+    <p>Nagel 把這兩段基因分別注入蛙卵,蛙卵細胞表面隨即長出了這種神祕蛋白質。打上藍光的瞬間,通道應聲而開,帶正電的離子湧入,電訊號產生——而且反應只花了0.2毫秒。Hegemann十年前的假說,被證實了。這個蛋白質後來被命名為<strong>channelrhodopsin</strong>(光閘離子通道蛋白),2002年與2003年,兩人先後發表了channelrhodopsin-1與channelrhodopsin-2的發現。更驚人的是,他們把這段基因轉殖進人類與倉鼠的培養細胞裡,這些原本對光毫無反應的細胞,也瞬間變得「怕光」——會因為光照產生電訊號。一個藻類的生存工具,原來可以在任何細胞裡運作。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">接棒的人</div>
+    <h2>一位想治病的醫生,把藻類蛋白送進了大腦</h2>
+    <p class="lead">1990年代,Karl Deisseroth 還在史丹佛攻讀醫學院,原本打算走神經外科,卻在精神科的臨床訓練中被病人的處境震動——為什麼憂鬱症患者感受不到喜悅?思覺失調的妄想從何而來?他同時攻讀神經科學博士,卻漸漸明白:要看懂這些疾病,得先看懂神經細胞如何在<strong>活著的大腦</strong>裡運作,而當時的工具太過粗糙。</p>
+    <p>許多同行認為,「用光精準操控單一神經細胞」這種構想——最早由發現DNA雙螺旋的 Francis Crick 在1970年代末提出——近乎天方夜譚,不值得投入資源。Deisseroth 仍決定冒險:他能提供給病人的治療方式太有限、副作用太大,他需要一條更深的路。</p>
+    <p>當他聽聞 channelrhodopsin-2 的發現,立刻寫信向 Nagel 要了這段基因,植入培養皿裡的大鼠神經細胞。他原本擔心外來基因會傷害敏感的神經細胞,結果細胞不只安然無恙,還順利「長出」了這個光感蛋白。打上藍光的瞬間,神經細胞應聲放電,訊號甚至能傳遞給下一個神經元。2005年,這項突破發表;一年後,這個方法有了名字——<strong>光遺傳學 optogenetics</strong>。</p>
+    <p>2007年,Deisseroth 團隊把這套開關裝進活體小鼠的運動皮質,透過一根細如髮絲的光纖伸入腦中,照光的瞬間,小鼠的鬍鬚應聲擺動——人類第一次能用光,「遙控」一隻活體動物的特定行為。同一年,團隊用同樣的方法喚醒了沉睡中的小鼠,證實了特定神經細胞確實掌管清醒與睡眠。2012年,他與1987年諾貝爾獎得主 Susumu Tonegawa 合作,甚至重新「啟動」了一段恐懼記憶的神經迴路——小鼠明明身處安全環境,卻表現出恐懼反應。這是科學家第一次證明:某段記憶,確實對應著某一群特定的神經細胞。</p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="kicker">為什麼重要</div>
+    <h2>一把鑰匙,打開了一整座迷宮</h2>
+    <p class="lead">成人大腦約有900億個神經細胞,彼此交織出數兆個連結,功能迥異的神經元往往緊緊相鄰。過去的研究方法就像在描一張模糊的素描——只能知道「這個腦區大致負責什麼」,卻無法證明是哪一種神經細胞,真正造成了某個感覺或行為。光遺傳學第一次讓科學家可以精準打開或關掉迷宮裡的某一條特定路徑。</p>
+    <div class="app-grid">
+      <div class="app-item">
+        <h3>繪製大腦功能地圖</h3>
+        <p>科學家已經用這套方法,找出掌管痛覺、社交行為、口渴、食慾、獎賞與專注力的神經迴路,也延伸到心跳、腸道感覺如何影響情緒的研究。</p>
+      </div>
+      <div class="app-item">
+        <h3>理解精神與神經疾病</h3>
+        <p>憂鬱症、焦慮症、思覺失調、阿茲海默症、帕金森氏症——研究者開始能定位這些疾病在神經迴路層級上,究竟哪裡「失靈」。</p>
+      </div>
+      <div class="app-item">
+        <h3>嘗試恢復視力</h3>
+        <p>臨床試驗中,科學家將類似channelrhodopsin的蛋白植入因「視網膜色素病變」而失明者的視網膜,患者配戴特製發光眼鏡後,重新能辨識並抓取桌上的物體。</p>
+      </div>
+      <div class="app-item">
+        <h3>改良人工電子耳</h3>
+        <p>現行電子耳以電流刺激聽覺神經,精準度有限;若能改用光來刺激,未來或許能讓電子耳的聲音解析度更進一步。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">時間簡表</div>
+    <h2>從一株藻,到一座新紀元</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">1970年代末</div>
+        <div class="tl-body">Francis Crick(1962年諾貝爾獎得主)提出構想:若能讓神經細胞對光產生反應,也許就能用光精準操控大腦活動——當時被視為近乎空想。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1990年代初</div>
+        <div class="tl-body">Peter Hegemann 觀察藻類 <em>Chlamydomonas</em> 對光的超快反應,提出「感光與放行離子由同一蛋白質完成」的假說。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2002–2003</div>
+        <div class="tl-body">Hegemann 與 Georg Nagel 合作,確認並發表 channelrhodopsin-1 與channelrhodopsin-2——光閘離子通道蛋白正式問世。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2005</div>
+        <div class="tl-body">Karl Deisseroth 將channelrhodopsin-2基因植入大鼠神經細胞,首度以光觸發神經放電。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2006</div>
+        <div class="tl-body">這套方法正式命名為「光遺傳學」(optogenetics)。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2007</div>
+        <div class="tl-body">Deisseroth 團隊在活體小鼠腦中成功以光操控運動皮質、喚醒睡眠中的小鼠。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2012</div>
+        <div class="tl-body">與 Susumu Tonegawa 合作,首度以光重新「喚起」一段恐懼記憶的神經迴路。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2026</div>
+        <div class="tl-body">Deisseroth、Hegemann、Nagel 共同獲頒諾貝爾生理學或醫學獎,臨床試驗持續嘗試用光遺傳學恢復視力與改良聽覺輔具。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="kicker">三位得主</div>
+    <h2>他們是誰</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Karl Deisseroth</h3>
+        <div class="role">美國・史丹佛大學</div>
+        <p>1971年生。醫師兼神經科學家,將channelrhodopsin轉化為可用於活體神經細胞的光控開關,2006年命名「光遺傳學」。</p>
+      </div>
+      <div class="card">
+        <h3>Peter Hegemann</h3>
+        <div class="role">德國・柏林洪堡大學</div>
+        <p>1954年生。因好奇藻類為何能瞬間感光,提出「單一蛋白質身兼感光器與離子通道」的關鍵假說。</p>
+      </div>
+      <div class="card">
+        <h3>Georg Nagel</h3>
+        <div class="role">德國・維爾茨堡大學</div>
+        <p>1953年生。以蛙卵細胞實驗,親手驗證並定性了channelrhodopsin這個蛋白質的真實功能。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="pull-quote">一顆只有1.3公斤重的器官,裝著童年的記憶、無端的白日夢,也裝著喜悅、愛與忌妒——人類好奇了幾千年,終於有了一盞,只聽光指揮的燈。</p>
+    <p class="pull-attr">——靈感取自 Virginia Woolf 1932年書信中對自己大腦的描述</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>資料來源:The Nobel Assembly at Karolinska Institutet,《Press release》與《Popular information: A light-sensitive algal protein energised neuroscience》,2026年10月5日發布。本頁為中文改寫與深度整理,非官方文件逐字翻譯。</p>
+    <p><a href="https://www.nobelprize.org/prizes/medicine/2026/press-release/" target="_blank" rel="noopener">閱讀諾貝爾官方新聞稿 →</a></p>
+    <div class="note-box">頁首肖像插畫由 Niklas Elmehed 繪製,© Nobel Prize Outreach,依官方授權免費用於非商業用途,本頁僅作教育與科普分享之用。</div>
+    <div class="credit">整理製作:Masky with Claude</div>
+  </div>
+</footer>
+
+</body>
+</html>
