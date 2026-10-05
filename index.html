@@ -55,24 +55,24 @@
   .wrap{max-width:860px; margin:0 auto; padding:0 24px;}
   a{color:var(--burgundy);}
 
-  /* HERO */
-  .hero{
-    position:relative;
-    padding:88px 0 64px;
-    background:
-      radial-gradient(ellipse at top, #fffaf0 0%, var(--bg) 70%);
-    border-bottom:1px solid var(--line);
-    overflow:hidden;
-  }
-  #heroCanvas{
-    position:absolute;
+  /* FULL-PAGE BACKGROUND CANVAS */
+  #bgCanvas{
+    position:fixed;
     inset:0;
     width:100%;
     height:100%;
     pointer-events:none;
     z-index:0;
   }
-  .hero .wrap{position:relative; z-index:1;}
+  header.hero, section, footer{position:relative; z-index:1;}
+
+  /* HERO */
+  .hero{
+    padding:88px 0 64px;
+    background:
+      radial-gradient(ellipse at top, rgba(255,250,240,.6) 0%, rgba(250,245,234,.8) 70%);
+    border-bottom:1px solid var(--line);
+  }
   .eyebrow{
     display:inline-block;
     font-size:.82rem;
@@ -115,7 +115,13 @@
 
   /* SECTION GENERIC */
   section{padding:64px 0;}
-  section.alt{background:var(--bg-panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  section.alt{
+    background:rgba(255,253,247,.86);
+    backdrop-filter:blur(3px);
+    -webkit-backdrop-filter:blur(3px);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
   .kicker{
     font-size:.78rem;
     letter-spacing:.2em;
@@ -231,8 +237,9 @@
 </head>
 <body>
 
+<canvas id="bgCanvas"></canvas>
+
 <header class="hero">
-  <canvas id="heroCanvas"></canvas>
   <div class="wrap">
     <span class="eyebrow">2026 諾貝爾生理學或醫學獎</span>
     <h1>牠只是想找到光,<br>卻替我們打開了<em>大腦</em>的門。</h1>
@@ -429,24 +436,23 @@
 </footer>
 
 <script>
-// ── hero 區塊 3D 神經網絡背景動畫 ──
+// ── 全頁 3D 神經網絡背景動畫 ──
 (function() {
-  var heroEl = document.querySelector('.hero');
-  var canvas = document.getElementById('heroCanvas');
+  var canvas = document.getElementById('bgCanvas');
   var ctx = canvas.getContext('2d');
   var W, H;
   var angleX = 0, angleY = 0;
   var targetAX = 0, targetAY = 0;
 
-  var N = 60;
+  var N = 90;
   var particles = [];
   var pulses = [];
   var CONNECT_DIST = 0.8;
   var nextPulseAt = 0;
 
   function resize() {
-    W = canvas.width = heroEl.clientWidth;
-    H = canvas.height = heroEl.clientHeight;
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
   }
 
   function initParticles() {
@@ -560,13 +566,9 @@
     requestAnimationFrame(draw);
   }
 
-  heroEl.addEventListener('mousemove', function(e) {
-    var rect = heroEl.getBoundingClientRect();
-    targetAY = ((e.clientX - rect.left) / rect.width - 0.5) * 0.5;
-    targetAX = ((e.clientY - rect.top) / rect.height - 0.5) * 0.35;
-  });
-  heroEl.addEventListener('mouseleave', function() {
-    targetAX = 0; targetAY = 0;
+  window.addEventListener('mousemove', function(e) {
+    targetAY = (e.clientX / window.innerWidth - 0.5) * 0.5;
+    targetAX = (e.clientY / window.innerHeight - 0.5) * 0.35;
   });
 
   window.addEventListener('resize', resize);
